@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
 import {  useNavigation } from '@react-navigation/native';
 
 
@@ -40,6 +40,12 @@ const SuccessScreen = () => {
 
   return (
     <View style={styles.container}>
+   
+  <Image
+    source={require('./image/congrats.png')} // Adjust the path if necessary
+    style={styles.logo}
+    onError={(error: any) => console.log('Image loading error:', error)}
+  />
       <Text style={styles.title}>Enter the Verification Code</Text>
       <Text style={styles.subtitle}>
         Please enter the 6-digit verification code sent to you.
@@ -75,6 +81,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     backgroundColor: '#fff',
+  },
+  logo: {
+    width: 200,
+    height: 200,
+    marginBottom: 50,
   },
   title: {
     fontSize: 20,
